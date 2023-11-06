@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Home from "./Pages/Home/Home";
-// import {Cart} from "./Pages/Home/Cart";
+import Cart from "./Pages/Home/Cart";
 
 
 import { ToastContainer } from "react-toastify";
@@ -21,7 +21,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home></Home>} />
-        {/* <Route path="/cart" element={<Cart></Cart>} /> */}
+        <Route path="/cart" element={<Cart></Cart>} />
       </Routes>
     </div>
   );
