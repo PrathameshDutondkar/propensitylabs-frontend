@@ -1,5 +1,6 @@
 import React from "react";
 import { Table, Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 
 function Cart({ cart, onRemoveItem }) {
   const columns = [
@@ -33,9 +34,8 @@ function Cart({ cart, onRemoveItem }) {
         <Button
           onClick={() => onRemoveItem(record)}
           type="danger"
-        >
-          Remove
-        </Button>
+          icon={<DeleteOutlined />} 
+        />
       ),
     },
   ];

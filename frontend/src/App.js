@@ -11,17 +11,17 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const navigate = useNavigate();
 
-  // Load cart data from localStorage on app initialization
+
   const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
   const [cart, setCart] = useState(initialCart);
 
-  // Function to remove an item from the cart
+
   const removeItemFromCart = (itemToRemove) => {
     const updatedCart = cart.filter((item) => item !== itemToRemove);
     setCart(updatedCart);
   };
 
-  // Update localStorage whenever cart data changes
+  
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
