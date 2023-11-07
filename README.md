@@ -1,5 +1,5 @@
-## `ITWOX-Test`
-A repository written for ITWOX test for react developer position.
+## `propensitylabs-test`
+
 
 ## `Running Locally`
 git clone this repo\
