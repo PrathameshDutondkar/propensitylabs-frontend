@@ -102,7 +102,7 @@
 
     return (
       <div>
-        <h2>Product Table</h2>
+        <h2>Products</h2>
         <Input
           placeholder="Search SKU or Title"
           value={searchText}
