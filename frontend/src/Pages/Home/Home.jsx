@@ -4,13 +4,13 @@
   import { ShoppingCartOutlined } from "@ant-design/icons";
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-  import Cart from "./Cart";
+ 
 
-  function Home() {
+  function Home({ cart, setCart }) {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("");
-    const [cart, setCart] = useState([]);
+    
     const [loading, setLoading] = useState(true); // Added loading state
     const [error, setError] = useState(null); // Added error state
 
@@ -80,16 +80,17 @@
     };
 
     const handleAddToCart = (item) => {
-      setCart([...cart, item]);
-      toast.success(`Added "${item.Title}" to the cart`, {
+      setCart([...cart, item["Title"]]); // Use the correct property name
+      toast.success(`Added "${item["Title"]}" to the cart`, {
         position: "top-right",
-        autoClose: 2000, // Auto-close the message after 2 seconds (adjust as needed)
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
       });
     };
+    
 
     if (loading) {
       return <Spin size="large" />;
@@ -120,8 +121,6 @@
         ) : (
           <Empty description="No data found" />
         )}
-
-        <Cart cart={cart}></Cart>
       </div>
     );
   }

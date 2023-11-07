@@ -1,19 +1,13 @@
 import React from "react";
 
-function Cart({ Cart }) {
-    console.log(Cart,"********88888")
-   
-    Cart?.forEach(item => {
-        const handle = item.Handle;
-        console.log(`Handle: ${handle}`);
-      });
-
+function Cart({ cart }) { // Change the parameter name to 'cart' (matching the state name)
+  console.log("xxxxxxxxx",cart[0],)
   return (
     <div>
       <h2>Shopping Cart</h2>
       <ul>
-        {Cart?.map((item, index) => (
-          <li key={index}>{item?.Handle}</li>
+        {cart.map((item, index) => ( // Use 'cart' instead of 'Cart' and remove the optional chaining
+          <li key={index}>{item}</li> // Use correct property name
         ))}
       </ul>
     </div>
