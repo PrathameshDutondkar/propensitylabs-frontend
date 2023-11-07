@@ -11,11 +11,11 @@
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("");
     
-    const [loading, setLoading] = useState(true); // Added loading state
-    const [error, setError] = useState(null); // Added error state
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
-      // Make a GET request to your API endpoint (http://localhost:8080/users)
+    
       fetch("http://localhost:8080/users")
         .then((response) => response.json())
         .then((data) => {
@@ -80,8 +80,8 @@
     };
 
     const handleAddToCart = (item) => {
-      setCart([...cart, item["Title"]]); // Use the correct property name
-      toast.success(`Added "${item["Title"]}" to the cart`, {
+      setCart([...cart, item]);
+      toast.success(`Added "${item.Title}" to the cart`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -107,7 +107,7 @@
           placeholder="Search SKU or Title"
           value={searchText}
           onChange={(e) => handleSearch(e.target.value)}
-          style={{ width: "50vw", marginBottom: "2rem" }}
+          style={{ width: "50vw", marginBottom: "2rem" ,marginRight:"1rem" }}
         />
         <Link to="/cart">
           <Button type="primary" style={{ marginTop: "1rem" }}>

@@ -1,15 +1,49 @@
 import React from "react";
+import { Table, Button } from "antd";
 
-function Cart({ cart }) { // Change the parameter name to 'cart' (matching the state name)
-  console.log("xxxxxxxxx",cart[0],)
+function Cart({ cart, onRemoveItem }) {
+  const columns = [
+    {
+      title: "Image",
+      dataIndex: "Image Src",
+      key: "Image Src",
+      render: (src) => (
+        <img src={src} alt="Product" style={{ maxWidth: "100px" }} />
+      ),
+    },
+    {
+      title: "Title",
+      dataIndex: "Title",
+      key: "Title",
+    },
+    {
+      title: "SKU",
+      dataIndex: "Variant SKU",
+      key: "Variant SKU",
+    },
+    {
+      title: "Price",
+      dataIndex: "Variant Price",
+      key: "Variant Price",
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (text, record) => (
+        <Button
+          onClick={() => onRemoveItem(record)}
+          type="danger"
+        >
+          Remove
+        </Button>
+      ),
+    },
+  ];
+
   return (
     <div>
       <h2>Shopping Cart</h2>
-      <ul>
-        {cart.map((item, index) => ( // Use 'cart' instead of 'Cart' and remove the optional chaining
-          <li key={index}>{item}</li> // Use correct property name
-        ))}
-      </ul>
+      <Table columns={columns} dataSource={cart} />
     </div>
   );
 }
