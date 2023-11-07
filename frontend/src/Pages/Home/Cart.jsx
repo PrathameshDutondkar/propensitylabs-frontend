@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Button } from "antd";
+import { Table, Button,Empty } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 
 function Cart({ cart, onRemoveItem }) {
@@ -43,7 +43,11 @@ function Cart({ cart, onRemoveItem }) {
   return (
     <div>
       <h2>Shopping Cart</h2>
-      <Table columns={columns} dataSource={cart} />
+      {cart.length > 0 ? (
+        <Table columns={columns} dataSource={cart} />
+      ) : (
+        <Empty description="No items in the cart" />
+      )}
     </div>
   );
 }
