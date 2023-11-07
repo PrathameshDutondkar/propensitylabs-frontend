@@ -52,7 +52,7 @@
         key: "Variant Price",
       },
       {
-        title: "Action",
+        title: "Add to Cart",
         key: "action",
         render: (text, record) => (
           <Button

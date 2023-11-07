@@ -28,7 +28,7 @@ function Cart({ cart, onRemoveItem }) {
       key: "Variant Price",
     },
     {
-      title: "Action",
+      title: "Remove from Cart",
       key: "action",
       render: (text, record) => (
         <Button
